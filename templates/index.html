@@ -6,10 +6,10 @@
         <img src="/static/img/bear_avatar.svg" class="bear-avatar" />
     </div>
     <div class="grid-100">
-        <form action="" method="POST">
-            <label>Name your bear</label>
+        <form action="{{ url_for( 'save' ) }}" method="POST">
+            <label>Who is?</label>
             <input type="text" name="name" value="" autofocus>
-            <input type="submit" value="Let's build it!">
+            <input type="submit" value="Let's Find out!">
         </form>
     </div>
 </div>
