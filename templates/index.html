@@ -6,11 +6,17 @@
         <img src="/static/img/bear_avatar.svg" class="bear-avatar" />
     </div>
     <div class="grid-100">
-        <form action="{{ url_for( 'save' ) }}" method="POST">
+        <form action="{{ url_for( 'whois' ) }}" method="POST">
             <label>Who is?</label>
             <input type="text" name="name" value="" autofocus>
             <input type="submit" value="Let's Find out!">
         </form>
     </div>
+    {% if user_exists == True: %}
+    <div>
+        <h1>Who is {{ fas_name }} @Fedora?</h1>
+    </div>
+    {% endif %}
+
 </div>
 {% endblock %}
