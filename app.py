@@ -15,7 +15,9 @@ def get_saved_data():
 def index():
 	data = get_saved_data()
 
-	return render_template('index.html', saves=data)
+	fas_name = requests.get('https://badges.fedoraproject.org/user/{}/json'.format(data.get('name')))
+
+	return render_template('index.html', output=fas_name.json(), saves=data)
 
 @app.route('/whois', methods=['POST'])
 def whois():
@@ -27,6 +29,10 @@ def whois():
 	data.update(dict(request.form.items()))
 
 	response.set_cookie('user', json.dumps(data))
+
+#	fas_name = requests.get('https://badges.fedoraproject.org/user/sadin/json')
+
+#	output = fas_name.json()
 
 #	responses = pprint.pprint(user.json())
 	return response
