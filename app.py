@@ -14,6 +14,7 @@ def get_saved_data():
 
 @app.route('/')
 def index():
+	data = get_saved_data()
     return render_template('index.html', saves=data)
 
 @app.route('/whois', methods=['POST'])
