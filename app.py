@@ -4,7 +4,6 @@ import json, requests, pprint
 
 app = Flask(__name__)
 
-
 def get_saved_data():
 	try:
 		data =json.loads(request.cookies.get('user'))
@@ -15,7 +14,8 @@ def get_saved_data():
 @app.route('/')
 def index():
 	data = get_saved_data()
-    return render_template('index.html', saves=data)
+
+	return render_template('index.html', saves=data)
 
 @app.route('/whois', methods=['POST'])
 def whois():
